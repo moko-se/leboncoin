@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block content %}
+<article id="homeTop">
+    <div class="wrapper">
+        <h2 class="title_h2">Des millions de petites annonces et autant d’occasions de se faire plaisir</h2>
+        <ul class="list">
+            <li class="list_item">
+                <div class="imgBox">
+                    <figure>
+                        <img src={{ asset("assets/img/vacances.jpg") }}>
+                    </figure>
+                    <p> Vacances </p>
+                </div>
+            </li>
+
+            <li class="list_item">
+                <div class="imgBox">
+                    <figure>
+                        <img src={{ asset("assets/img/vetement.jpg") }}>
+                    </figure>
+                    <p> Vetements </p>
+                </div>
+            </li>
+
+            <li class="list_item">
+                <div class="imgBox">
+                    <figure>
+                        <img src={{ asset("assets/img/emploie.jpg") }}>
+                    </figure>
+                    <p> Offres d'emploi </p>
+                </div>
+            </li>
+
+            <li class="list_item">
+                <div class="imgBox">
+                    <figure>
+                        <img src={{ asset("assets/img/voiture.jpg") }}>
+                    </figure>
+                    <p> Voiture </p>
+                </div>
+            </li>
+        </ul>
+
+        {# Banniere pub #}
+        <div class="pub">
+            <figure>
+                <img src="#" alt="annonce publicitaire">
+            </figure>
+        </div>
+    </div>
+</article> 
+
+<section id="home">
+    <div class="wrapper">
+        {% if ads != null %}
+            <h2 class="title_h2">Nos derniéres annonces</h2>
+            <div class="annonces">
+                {% for item in ads %}
+                    <article class="card">
+                        <a href={{ path('app_advert_view', {id: item.id}) }} class="linkidadvert"></a>
+                        <div class="topCard">
+                            <figure>
+                                <img src={{ asset("assets/img/prod1.jpg")}} alt="Images found">
+                            </figure>
+                        </div>
+                        <div class="middleCard">
+                            <h3 class="title_h3">{{ item.title }}</h3>
+                            <p class="price">{{ item.price }} euros</p>
+                            <p class="livraison">Livraison possible</p>
+                            <p class="date">Mise en ligne le : {{ item.getCreatedAt()|date('d/m/Y') }}</p>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h2 class="title_h3">Aucune d'annonce en ligne</h2>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

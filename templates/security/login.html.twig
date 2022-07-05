@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign in{% endblock %}
+
+{% block content %}
+    <article id="login" class="formtemplates">
+        <div class="wrapper">
+            {# Message d'erreur #}
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+        
+            <form class="formL" method="post">
+                <h2 class="title_h2"> Bonjour !</h2>
+                <p class="texttop">Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
+                <div class="form-group">
+                    <label for="inputUsername">Pseudo</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" palceholder="Pseudo" autocomplete="username" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" palceholder="Mot de passe" autocomplete="current-password" required>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="form-group">
+                    <button class="btn form-control" type="submit">Se connecter</button>
+                </div>
+                <p class="text bomText">
+                    Envie de nous rejoindre ? 
+                    <a href="../register" class="register"> Créer un compte </a>
+                </p>
+            </form>
+        </div>
+    </article>
+{% endblock %}

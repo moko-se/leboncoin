@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href={{ asset("assets/css/main.css") }}>
+    <link rel="stylesheet" href={{ asset("assets/css/all.min.css") }}>
+
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    {# HEADER #}
+    <header class="header">
+      <div class="wrapper">
+      <div class="left">
+        <a class="logo" href="/">Leboncoin</a>
+        <form class="myForm" role="form" action="#">  
+          <div class="form_group">
+            {# <label for="annonce">Search</label> #}
+            <span class="icon-search"> <i class="fas fa-search" ></i></span>
+            <input type="text" name="annonce" placeholder="Chercher ici" class="form_control">
+          </div>
+        </form>
+      </div>
+        <nav class="menu">
+          <a class="navLink" href="#">
+            <span class="fas fa-search"></span>
+            <p> Mes recherches </p>
+          </a>
+          <a class="navLink" href="#">
+            <span class="far fa-heart"></span>
+            <p> Favoris </p>
+          </a>
+          <a class="navLink" href="#">
+            <span class="far fa-comment"></span>
+            <p> Messages </p>
+          </a>
+
+          {# Quand je suis connecté #}
+          {% if app.user %}
+          <a class="profil" href="/logout" title="Se déconecter">
+            {{ app.user.userIdentifier }}
+          </a>
+          {% else %}
+          <a class="navLink" href="/login">
+            <span class="far fa-user"></span>
+            Se connecter
+          </a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+    <a href="/adverts/add" class="btn addadvert">
+      <span> <i class="fas fa-plus" aria-hidden="true"></i></span>
+    </a>
+    {# CONTENT #}
+    {% block content %}
+        Contenu du body 
+    {% endblock %}
+
+    {% block javascript%} {% endblock %}
+
+    {# FOOTER #}
+    <footer class="footer">
+        footer
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

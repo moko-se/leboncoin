@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} View page page {% endblock %}
+{% block content %} 
+	<article id="viewa">
+		<div class="wrapper">
+			<div class="card">
+				<div class="topCarda">
+					<figure>
+						<img src={{ asset("assets/img/prod1.jpg")}} alt="Images found">
+					</figure>
+				</div>
+				<div class="middleCarda">
+					<h3 class="title_h3">{{ advert.title }}</h3>
+					<p class="price">{{ advert.price }} euros <span class="livraison">Livraison possible</span></p>
+					<p class="date">Mise en ligne le : {{ advert.getCreatedAt()|date('d/m/Y') }}</p>
+				</div>
+				{% if is_granted('ROLE_USER') %}
+					<div class="botomCarda">
+						<a href="{{ path('app_advert_edit', {id: advert.id}) }}" class="btn btn-success">Modifier</a>
+						<a href="{{ path('app_advert_delete', {id: advert.id}) }}" class="btn btn-danger">Supprimer</a>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</article>
+{% endblock %}

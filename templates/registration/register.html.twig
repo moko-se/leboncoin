@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+
+
+    <article id="register" class="formtemplates">
+    <div class="wrapper">
+        {{ form_start(registrationForm) }}
+            <h2 class="title_h2"> Créer un compte !</h2>
+            <p class="texttop">Bénéficiez d'une expérience personnalisée avec du contenu en lien avec votre activité et vos centres d'intérêt sur notre service</p>
+            {{ form_row(registrationForm.username, {
+                label: 'Créer un pseudo'
+            }) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Créer un mot de passe'
+            }) }}
+
+            <div class="form-group">
+                <button class="btn form-control" type="submit">Créer</button>
+            </div>
+            <p class="bomText">
+                Vous avez déjà un compte ? 
+                <a href="../login" class="register"> Se connecter </a>
+            </p>
+        {{ form_end(registrationForm) }}
+    </div>
+</article>
+{% endblock %}

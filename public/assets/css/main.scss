@@ -1,0 +1,546 @@
+@import "_reset";
+@import "_variables";
+
+/* Police d'ecriture par default*/
+@font-face {
+    font-family: "Ubuntu";
+
+    src: url("../webfonts/Ubuntu-Regular.woff") format("woff"),
+    /* Moderne Browsers */
+             url("../webfonts/Ubuntu-Regular.woff2") format("woff2");
+             /* Modern Browsers */
+    font-weight:  normal;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+
+    src: url("../webfonts/Ubuntu-bold.woff") format("woff"),
+    /* Moderne Browsers */
+             url("../webfonts/Ubuntu-bold.woff2") format("woff2");
+             /* Modern Browsers */
+    font-weight:  bold;
+}
+
+html, body{
+	font-family: Ubuntu;
+	font-size: 1.0rem;
+	position: relative;
+	background: $light;
+}
+
+/*///////////////////////////////////////*/
+.wrapper{
+	width: 80%;
+	margin: 0 auto;
+}
+a{
+	color: inherit;
+	text-decoration: none;
+	transition: color 400ms ease-in-out;
+}
+
+.title_h1{
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.25;
+	margin-bottom: 25px;
+}
+
+.title_h2{
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 1.25;
+	color: $dark;
+
+	margin-bottom: 25px;
+}
+
+.title_h3{
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.25;
+	color: $dark;
+
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.header{
+    background: $light;
+    box-shadow: 0px 9px 8px -9px rgba(0,0,0,0.47);
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    &>div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        .menu{
+            display: flex;
+            gap: 25px;
+            .navLink{
+                font-weight: 500;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                &>span{
+                    display: block;
+                }
+                &>i{
+                    font-size: 1.5rem;
+                    color: rgba($color: $dark, $alpha: 0.8);
+                }
+                &:hover{
+                    color: $primary;
+                }
+
+            }
+        }
+        .logo{
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: $primary;
+        }
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            .myForm{
+                .form_group{
+                    width:500px;
+                    position: relative;
+                    .icon-search{
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translate(50%, -50%);
+                        color: rgba($color: $dark, $alpha: 0.2);
+                        font-size: 0.8rem;
+                    }
+                    .form_control{
+                        width: 100%;
+                        padding: 10px 25px;
+                        border-radius: 5px;
+                        border: 1px solid rgba($color: $dark, $alpha: 0.1);
+                        &:focus{
+                            outline: none;
+                        }
+                        &::before{
+                            content: "\f002";
+                            font-family: "Font Awesome 5 Free";
+                        }
+                        &::placeholder{
+                            color: rgba($color: $dark, $alpha: 0.4);
+                            font-size: 0.7rem;
+                            letter-spacing: 1.2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#homeTop{
+    padding-top: 120px;
+    position: relative;
+    min-height: 500px;
+    &>div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .list{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 25px;
+            margin-bottom: 25px;
+            .list_item{
+                width: 21%;
+                box-shadow: 0px 9px 8px -9px rgba(0,0,0,0.47);
+                &>.imgBox{
+                    height: 170px;
+                    width: 100%;
+                    position: relative;
+                    figure{
+                        height: 170px;
+                        width: 100%;
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 10px;
+                            filter: brightness(0.6);
+                            transition: filter 200ms linear;
+                        }
+                    }
+                    &>p{
+                        position: absolute;
+                        bottom: 15px;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 100%;
+                        text-align: center;
+                        color: $light;
+                        font-weight: 600;
+                        z-index: 10;
+                    }
+                    &:hover{
+                        figure img{
+                            filter: brightness(0.8);
+                        }
+                    }
+                }
+            }
+        }
+        .pub{
+            height: 150px;
+            width: 65%;
+            background-color: rgba($color: $dark, $alpha: 0.1);
+        }
+    }
+}   
+#home{
+    padding-top: 70px;
+    position: relative;
+    min-height: 100vh;
+    &>div{
+        .annonces{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            .card{
+                width: 21%;
+                height: 500px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                &>div{
+                    height: 31%;
+                }
+                .topCard{
+                    flex-grow: 1;
+                    padding: 5px;
+                    figure{
+                        height: 100%;
+                        width: 100%;
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 15px;
+                            filter: brightness(0.9);
+                        }
+                    }
+                }
+                .middleCard{
+                    padding: 25px 15px;
+                    &>.title_h3{
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        color: $dark;
+                        transition: 300ms linear;
+                    }
+                    .date{
+                        font-size: 0.8rem;
+                        color: rgba($color: $dark, $alpha: 0.7);
+                    }
+                    .price{
+                        color: rgb(123, 194, 123);
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+                    .livraison{
+                        background: rgba($color: $primary, $alpha: 0.1);
+                        color: rgba($color: $dark, $alpha: 0.7);
+                        width: 150px;
+                        border-radius: 2px;
+                        padding: 3px;
+                        text-align: center;
+                        border: none;
+                        margin-bottom: 5px;
+                    }
+                }
+                .linkidadvert{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+#login{
+    padding-top: 120px;
+    height: 100vh;
+    &>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .formL{
+            width: 450px;
+            box-shadow: 1px 1px 7px -4px rgba(0,0,0,0.75);
+            border-radius: 10px;
+            padding: 15px 25px;
+
+            height: auto;
+            &>.title_h2{
+                margin-bottom: 5px;
+                text-align: center;
+            }
+            &>.texttop{
+                text-align: center;
+                color: rgba($color: $dark, $alpha: 0.7);
+                margin-bottom: 35px;
+            }
+            &>.bomText{
+                margin-top: 35px;
+                text-align: center;
+            }
+            .register{
+                color: $secondary;
+                transition: 200ms linear;
+                &:hover{
+                    color: rgba($color: $secondary, $alpha: 0.9);
+                }
+            }
+
+        }
+    }
+}
+
+#register{
+    padding-top: 120px;
+    height: 100vh;
+    &>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &>form{
+            width: 450px;
+            box-shadow: 1px 1px 7px -4px rgba(0,0,0,0.75);
+            border-radius: 10px;
+            padding: 15px 25px;
+
+            height: auto;
+            &>.texttop{
+                text-align: left;
+                color: rgba($color: $dark, $alpha: 0.7);
+                margin-bottom: 35px;
+            }
+            &>.title_h2{
+                text-align: left;
+                margin-bottom: 10px;
+            }
+            &>div{
+                margin-bottom: 35px;
+                height: 45px;
+                &>input{
+                    height: 100%;
+                    width: 100%;
+                    padding: 3px 10px;
+                    border: 1px solid rgba($color: $dark, $alpha: 0.2);
+                    border-radius: 4px;
+                    &:focus{
+                        outline: none;
+                    }
+
+                    
+                }
+            }
+            .register{
+                color: $secondary;
+                transition: 200ms linear;
+                text-align: center;
+                &:hover{
+                    color: rgba($color: $secondary, $alpha: 0.9);
+                }
+            }
+            &>.bomText{
+                text-align: center;
+            }
+        }
+
+    }
+}
+
+#advertS{
+    padding-top: 120px;
+    position: relative;
+    height: 100vh;
+    &>div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &>form{
+            width: 500px;
+            padding: 15px 25px;
+
+            height: auto;
+            #advert{
+                &>div{
+                    margin-bottom: 35px;
+                    height: 45px;
+                    &>input{
+                        height: 100%;
+                        width: 100%;
+                        padding: 3px 10px;
+                        border: 1px solid rgba($color: $dark, $alpha: 0.2);
+                        border-radius: 4px;
+                        &:focus{
+                            outline: none;
+                        }
+    
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+#viewa{
+    padding-top: 120px;
+    min-height: 100vh;
+    &>div{
+        .card{
+            width: 55%;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            &>div{
+                height: 31%;
+            }
+            .topCarda{
+                flex-grow: 1;
+                padding: 5px;
+                figure{
+                    height: 100%;
+                    width: 100%;
+                    overflow: hidden;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 15px;
+                        filter: brightness(0.9);
+                    }
+                }
+            }
+            .middleCarda{
+                padding: 25px 15px;
+                &>.title_h3{
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: $dark;
+                    transition: 300ms linear;
+                }
+                .date{
+                    font-size: 0.8rem;
+                    color: rgba($color: $dark, $alpha: 0.7);
+                }
+                .price{
+                    color: rgb(123, 194, 123);
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                }
+                .livraison{
+                    background: rgba($color: $primary, $alpha: 0.1);
+                    color: rgba($color: $dark, $alpha: 0.7);
+                    width: 150px;
+                    border-radius: 2px;
+                    padding: 3px;
+                    text-align: center;
+                    border: none;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+    }
+}
+
+// ::::::::::::::
+.form-group{
+    margin-bottom: 35px;
+    height: 45px;
+    .form-control{
+        height: 100%;
+        width: 100%;
+        padding: 3px 10px;
+        border: 1px solid rgba($color: $dark, $alpha: 0.2);
+        border-radius: 4px;
+        &:focus{
+            outline: none;
+        }
+
+        
+    }
+}
+
+.btn, #advert_Save{
+    cursor: pointer;
+    background: rgba($color: $secondary, $alpha: 0.9);
+    transition: background 200ms linear;
+    color: $light;
+    font-size: 1.0rem;
+    border: none;
+    &:hover{
+        background: rgba($color: $secondary, $alpha: 1);
+    }
+}
+
+#advert_Save{
+    width: 100%;
+    height: 45px;
+    border-radius: 4px;
+}
+.addadvert{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 55px;
+    right: 35px;
+    z-index: 1000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    &>span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        &>i{
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+    }
+
+}
+
+.profil{
+    background: rgb(136, 175, 203);
+    border: none;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    padding: 4px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $light;
+}
